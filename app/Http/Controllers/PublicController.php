@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Museum;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -22,6 +23,12 @@ class PublicController extends Controller
         $museums = Museum::all();
         return view('museums.index', compact("museums"));
     }
+
+    public function movies_index(){
+        // collection
+        $movies = Movie::all();
+        return view('movies.index', compact("movies"));
+    }
     
     public function books_create(){
         return view('books.create');
@@ -29,6 +36,10 @@ class PublicController extends Controller
     
     public function museums_create(){
         return view('museums.create');
+    }
+
+    public function movies_create(){
+        return view('movies.create');
     }
     
     public function book_submit(Request $request){
@@ -50,6 +61,17 @@ class PublicController extends Controller
             'description'=>$request->description
         ]);
         return redirect(route('homepage'))->with('status', 'Museo aggiunto!');  
+    }
+
+    public function movie_submit(Request $request){
+        
+        Movie::create([
+            'title'=>$request->title,
+            'author'=>$request->author,
+            'year'=>$request->year,
+            'description'=>$request->description
+        ]);
+        return redirect(route('homepage'))->with('status', 'Film aggiunto!');  
     }
     
     

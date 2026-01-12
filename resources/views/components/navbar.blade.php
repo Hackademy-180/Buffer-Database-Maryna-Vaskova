@@ -21,6 +21,12 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('museums_create')}}">Aggiungi Museo</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('movies_index')}}">Film</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('movies_create')}}">Aggiungi Film</a>
+        </li>
       </ul>
     </div>
   </div>
